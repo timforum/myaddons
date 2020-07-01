@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="cn_invoice_tree_view">
+        <field name="name">cn_invoice.tree</field>
+        <field name="model">cn.invoice</field>
+        <field name="arch" type="xml">
+            <tree string="invoice_tree">
+                <field name="invoice_type"/>
+                <field name="order_no"/>
+                <field name="invoice_type"/>
+                <field name="customer_net_id"/>
+                <field name="tax_id"/>
+                <field name="note"/>
+                <field name="splited"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="cn_invoice_form_view">
+        <field name="name">cn_invoice.form</field>
+        <field name="model">cn.invoice</field>
+        <field name="arch" type="xml">
+                <form string="invoice_form1">
+                    <group>
+                        <sheet>
+                        <group>
+                            <field name="invoice_type"/>
+                            <field name="to_company"/>
+                             <field name="order_no"/>
+                            <field name="customer_net_id"/>
+                            <field name="tax_id"/>
+                            <field name="splited"/>
+                            <field name="email"/>
+                            <field name="note"/>
+                        </group>
+                        </sheet>
+
+                        <group>
+                            <field name="to_company"/>
+                        </group>
+                        <group>
+                            <field name='order_line'/>
+<!--                            <field name="sku"/>-->
+                        </group>
+                    </group>
+
+                </form>
+
+        </field>
+    </record>
+
+    # serach view
+
+    <record model="ir.ui.view" id="invoice_search_view">
+        <field name="name">cn_invoice.search</field>
+        <field name="model">cn.invoice</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="customer_net_id"/>
+                <field name="tax_id"/>
+                <field name="email"/>
+                <field name="order_no"/>
+            </search>
+        </field>
+    </record>
+
+
+
+
+
+    <record model="ir.actions.act_window" id="invoice_list_action">
+        <field name="name">cn_invoice</field>
+        <field name="res_model">cn.invoice</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="orderline_list_action">
+        <field name="name">orerline_list</field>
+        <field name="res_model">cn.orderline</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="main_cn_invoice_menu" name="orderline_list_action"/>
+    <menuitem id="cn_invoice_menu" name="Registing"
+              parent="main_cn_invoice_menu"
+              action="invoice_list_action"/>
+    <menuitem id="cn_orderline_menu" name="orerline"
+              parent="main_cn_invoice_menu"
+              action="orderline_list_action"/>
+
+
+</odoo>

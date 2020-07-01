@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<odoo>
+
+    <record model="ir.ui.view"  id="orderline_view" >
+        <field name="name">orderline.tree</field>
+        <field name="model">cn.orderline</field>
+        <field name="arch" type="xml">
+            <tree string=" orderline_view" editable ='bottom'>
+
+                <field name="sku"/>
+                <field name="product_name"/>
+                <field name="qty"/>
+                <field name="unit_price"/>
+                <field name="amount" sum="total"/>
+            </tree>
+
+        </field>
+
+    </record>
+
+</odoo>
+
