@@ -5,7 +5,7 @@
         <field name="name">cn_invoice.tree</field>
         <field name="model">cn.invoice</field>
         <field name="arch" type="xml">
-            <tree string="invoice_tree">
+            <tree decoration-danger="state=='draft'" decoration-success="state=='done'" >
                 <field name="invoice_type"/>
                 <field name="order_no"/>
                 <field name="invoice_type"/>
@@ -14,6 +14,7 @@
                 <field name="note"/>
                 <field name="splited"/>
                 <field name="email"/>
+                <field name="state"/>
             </tree>
         </field>
     </record>
@@ -25,6 +26,23 @@
                 <form string="invoice_form1">
                     <group>
                         <sheet>
+                            <header>
+
+                                <button name="action_confirm" type="object"
+                                        string="Confirm" states="draft"
+                                        class="oe_highlight"/>
+                                 <button name="action_draft" type ='object'
+                                        string = "Reset to draft"
+                                        states = 'done'/>
+
+<!--                                 <button name="action_draft" type="object"-->
+<!--                                        string="Confirm" states="draft"-->
+<!--                                        class="oe_highlight"/>                               -->
+
+
+                                <field name="state" widget="statusbar"/>
+
+                            </header>
                         <group>
                             <field name="invoice_type"/>
                             <field name="to_company"/>

@@ -15,7 +15,24 @@ class invoicergister(models.Model):
     splited = fields.Boolean(string="Splited?", required=True)
     email = fields.Char(string="Email")
 
+    state = fields.Selection( [('draft','Draft'),('done','Done')],default='draft')
+
     order_line= fields.One2many("cn.orderline","cn_invoice_id",string='sku')
+
+    def action_draft(self):
+        self.state = 'draft'
+
+    def action_confirm(self):
+        self.state = 'done'
+
+
+    def action_reset(self):
+       self.state = 'Reset to draft'
+
+
+
+
+
 
 class cn_orderline(models.Model):
     _name = 'cn.orderline'
