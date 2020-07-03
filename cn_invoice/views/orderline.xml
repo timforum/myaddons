@@ -8,9 +8,23 @@
         <field name="model">cn.orderline</field>
         <field name="arch" type="xml">
             <tree string=" orderline_view" editable ='bottom'>
-
-                <field name="sku"/>
                 <field name="product_name"/>
+                <field name="sku"/>
+                <field name="qty"/>
+                <field name="unit_price"/>
+                <field name="amount" sum="total"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="content_view">
+        <field name="name">cn.content.tree</field>
+        <field name="model">cn.content</field>
+        <field name="arch" type="xml">
+            <tree string=" orderline_view" editable='bottom'>
+                <field name="product_name"/>
+                <field name="sku"/>
                 <field name="qty"/>
                 <field name="unit_price"/>
                 <field name="amount" sum="total"/>

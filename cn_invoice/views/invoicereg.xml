@@ -5,7 +5,8 @@
         <field name="name">cn_invoice.tree</field>
         <field name="model">cn.invoice</field>
         <field name="arch" type="xml">
-            <tree decoration-danger="state=='draft'" decoration-success="state=='done'" >
+            <tree decoration-danger="state=='apply_invoice'" decoration-success="state=='done'">
+                <field name="create_date" widget="date"/>
                 <field name="invoice_type"/>
                 <field name="order_no"/>
                 <field name="invoice_type"/>
@@ -23,90 +24,109 @@
         <field name="name">cn_invoice.form</field>
         <field name="model">cn.invoice</field>
         <field name="arch" type="xml">
-                <form string="invoice_form1">
+            <form string="invoice_form1">
+                <header>
+
+                    <button name="action_submit" type="object"
+                            string="submit" states="draft"
+                            class="oe_highlight"/>
+                    <button name="action_apply" type='object'
+                            string="Appling invoice"
+                            states='apply_invoice'
+                            class="oe_highlight"/>
+                    <button name="action_reset" type='object'
+                            string="Reset to Draft"
+                            states='done,apply_invoice'
+                            class="oe_highlight"/>
+
+                    <field name="state" widget="statusbar"/>
+
+                </header>
+
+                <sheet>
                     <group>
-                        <sheet>
-                            <header>
+                         <group>
+                            <field name="invoice_type" attrs="{'readonly': [('state','==','done')] }"/>
+                            <field name="to_company" attrs="{'readonly': [('state','==','done')] }"/>
+                            <field name="tax_id" attrs="{'readonly': [('state','==','done')] }"/>
 
-                                <button name="action_confirm" type="object"
-                                        string="Confirm" states="draft"
-                                        class="oe_highlight"/>
-                                 <button name="action_draft" type ='object'
-                                        string = "Reset to draft"
-                                        states = 'done'/>
-
-<!--                                 <button name="action_draft" type="object"-->
-<!--                                        string="Confirm" states="draft"-->
-<!--                                        class="oe_highlight"/>                               -->
-
-
-                                <field name="state" widget="statusbar"/>
-
-                            </header>
-                        <group>
-                            <field name="invoice_type"/>
-                            <field name="to_company"/>
-                             <field name="order_no"/>
-                            <field name="customer_net_id"/>
-                            <field name="tax_id"/>
-                            <field name="splited"/>
-                            <field name="email"/>
-                            <field name="note"/>
-                        </group>
-                        </sheet>
-
-                        <group>
-                            <field name="to_company"/>
+                            <field name="bank_id" attrs="{'readonly': [('state','==','done')] ,'visible': [('invoice_type','==','纸质专用发票')] }"/>
+                            <field name="bank_name" attrs="{'readonly': [('state','==','done')] }"/>
+                            <field name="address" attrs="{'readonly': [('state','==','done')] }"/>
+                            <field name="telephone" attrs="{'readonly': [('state','==','done')] }"/>
                         </group>
                         <group>
-                            <field name='order_line'/>
-<!--                            <field name="sku"/>-->
+                            <field name="order_no" attrs="{'readonly': [('state','==','done')] }"/>
+                            <field name="customer_net_id" attrs="{'readonly': [('state','==','done')] }"/>
+                            <field name="splited" attrs="{'readonly': [('state','==','done')] }"/>
+                            <field name="email" attrs="{'readonly': [('state','==','done')] }"/>
+                            <field name="note" attrs="{'readonly': [('state','==','done')] }"/>
                         </group>
+
                     </group>
 
-                </form>
+                    <group>
 
-        </field>
-    </record>
+                       <field name='order_line' string="Order Line"  attrs="{'readonly': [('state','==','done')] }"/>
+                       <field name='content_line' string="Invoice Content" attrs="{'readonly': [('state','==','done')] }" />
 
-    # serach view
+                    </group>
+                </sheet>
 
-    <record model="ir.ui.view" id="invoice_search_view">
-        <field name="name">cn_invoice.search</field>
-        <field name="model">cn.invoice</field>
-        <field name="arch" type="xml">
-            <search>
-                <field name="customer_net_id"/>
-                <field name="tax_id"/>
-                <field name="email"/>
-                <field name="order_no"/>
-            </search>
-        </field>
-    </record>
+            </form>
 
+    </field>
+</record>
 
+        # serach view
 
-
-
-    <record model="ir.actions.act_window" id="invoice_list_action">
-        <field name="name">cn_invoice</field>
-        <field name="res_model">cn.invoice</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <record model="ir.actions.act_window" id="orderline_list_action">
-        <field name="name">orerline_list</field>
-        <field name="res_model">cn.orderline</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <menuitem id="main_cn_invoice_menu" name="orderline_list_action"/>
-    <menuitem id="cn_invoice_menu" name="Registing"
-              parent="main_cn_invoice_menu"
-              action="invoice_list_action"/>
-    <menuitem id="cn_orderline_menu" name="orerline"
-              parent="main_cn_invoice_menu"
-              action="orderline_list_action"/>
+<record model="ir.ui.view" id="invoice_search_view">
+<field name="name">cn_invoice.search</field>
+<field name="model">cn.invoice</field>
+<field name="arch" type="xml">
+    <search>
+        <field name="customer_net_id"/>
+        <field name="tax_id"/>
+        <field name="email"/>
+        <field name="order_no"/>
+    </search>
+</field>
+</record>
 
 
+<record model="ir.actions.act_window" id="invoice_list_action">
+<field name="name">cn_invoice</field>
+<field name="res_model">cn.invoice</field>
+<field name="view_mode">tree,form</field>
+</record>
+
+<record model="ir.actions.act_window" id="orderline_list_action">
+    <field name="name">orerline_list</field>
+    <field name="res_model">cn.orderline</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<record model="ir.actions.act_window" id="content_list_action">
+    <field name="name">content_list</field>
+    <field name="res_model">cn.content</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+
+
+<menuitem id="main_cn_invoice_menu" name="orderline_list_action"/>
+<menuitem id="cn_invoice_menu" name="Registing"
+          parent="main_cn_invoice_menu"
+          action="invoice_list_action"/>
+<menuitem id="cn_orderline_menu" name="orerline"
+          parent="main_cn_invoice_menu"
+          action="orderline_list_action"/>
+
+<menuitem id="cn_orderline_menu" name="orerline"
+          parent="main_cn_invoice_menu"
+          action="orderline_list_action"/>
+
+<menuitem id="cn_content_menu" name="content"
+          parent="main_cn_invoice_menu"
+          action="content_list_action"/>
 </odoo>
