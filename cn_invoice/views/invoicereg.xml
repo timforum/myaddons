@@ -50,10 +50,10 @@
                             <field name="to_company" attrs="{'readonly': [('state','==','done')] }"/>
                             <field name="tax_id" attrs="{'readonly': [('state','==','done')] }"/>
 
-                            <field name="bank_id" attrs="{'readonly': [('state','==','done')] ,'visible': [('invoice_type','==','纸质专用发票')] }"/>
-                            <field name="bank_name" attrs="{'readonly': [('state','==','done')] }"/>
-                            <field name="address" attrs="{'readonly': [('state','==','done')] }"/>
-                            <field name="telephone" attrs="{'readonly': [('state','==','done')] }"/>
+                            <field name="bank_id" attrs="{'readonly': [('state','==','done')] ,'invisible': [('invoice_type','!=','c')] }"/>
+                            <field name="bank_name" attrs="{'readonly': [('state','==','done')] ,'invisible': [('invoice_type','!=','c')] }"/>
+                            <field name="address" attrs="{'readonly': [('state','==','done')] ,'invisible': [('invoice_type','!=','c')] }"/>
+                            <field name="telephone" attrs="{'readonly': [('state','==','done')] ,'invisible': [('invoice_type','!=','c')] }"/>
                         </group>
                         <group>
                             <field name="order_no" attrs="{'readonly': [('state','==','done')] }"/>

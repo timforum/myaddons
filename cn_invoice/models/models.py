@@ -31,6 +31,7 @@ class invoicergister(models.Model):
     def action_submit(self):
         self.state = 'apply_invoice'
 
+
     def action_apply(self):
         self.state = 'done'
 
