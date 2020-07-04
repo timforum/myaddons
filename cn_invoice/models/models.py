@@ -44,8 +44,8 @@ class invoicergister(models.Model):
     # disable delete record on state done
     def unlink(self):
         for order in self:
-            if self.state =='done':
-                raise exceptions.UserError('You cannot Delete this record')
+            if self.state =='done' or self.state == 'apply_invoice':
+                raise exceptions.UserError('You cannot Delete this record, unless you reset it to draft)
         return super().unlink()
 
 

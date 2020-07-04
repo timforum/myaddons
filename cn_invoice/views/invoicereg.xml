@@ -9,7 +9,7 @@
                 <field name="create_date" widget="date"/>
                 <field name="invoice_type"/>
                 <field name="order_no"/>
-                <field name="invoice_type"/>
+                <field name="to_company"/>
                 <field name="customer_net_id"/>
                 <field name="tax_id"/>
                 <field name="note"/>
@@ -33,11 +33,11 @@
                     <button name="action_apply" type='object'
                             string="Appling invoice"
                             states='apply_invoice'
-                            class="oe_highlight"/>
+                            class="oe_highlight" groups = "__export__.res_groups_21_93deab42" />
                     <button name="action_reset" type='object'
                             string="Reset to Draft"
                             states='done,apply_invoice'
-                            class="oe_highlight"/>
+                            class="oe_highlight" groups = "__export__.res_groups_21_93deab42" />
 
                     <field name="state" widget="statusbar"/>
 
@@ -89,6 +89,7 @@
         <field name="tax_id"/>
         <field name="email"/>
         <field name="order_no"/>
+         <field name="to_company"/>
     </search>
 </field>
 </record>
@@ -114,7 +115,7 @@
 
 
 
-<menuitem id="main_cn_invoice_menu" name="orderline_list_action"/>
+<menuitem id="main_cn_invoice_menu" name="Invoice Register"/>
 <menuitem id="cn_invoice_menu" name="Registing"
           parent="main_cn_invoice_menu"
           action="invoice_list_action"/>
