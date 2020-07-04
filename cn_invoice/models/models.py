@@ -13,7 +13,10 @@ class invoicergister(models.Model):
     to_company = fields.Char(string="To Company", required=True)
     tax_id = fields.Char(string="Tax ID", required=True)
 
-    # specified invoice needed informaiton
+    copy_paste_tax = fields.Text(string='copy & paste tax information')
+    copy_paste_order = fields.Text(String = 'copy & paste order information')
+
+    #specified invoice needed informaiton
     bank_id = fields.Char(string="Bank Account ID")
     bank_name = fields.Char(string="Bank Name")
     address = fields.Char(string="Address")
@@ -45,8 +48,15 @@ class invoicergister(models.Model):
     def unlink(self):
         for order in self:
             if self.state =='done' or self.state == 'apply_invoice':
-                raise exceptions.UserError('You cannot Delete this record, unless you reset it to draft)
+                raise exceptions.UserError('You cannot Delete this record, unless you reset it to draft')
         return super().unlink()
+
+    def button_demo(self):
+        self.copy_paste_tax =""
+        # self.invoice_type="aaa"
+        self.to_company="bbb"
+        self.tax_id = "cccc"
+
 
 
 class cn_orderline(models.Model):
