@@ -16,6 +16,7 @@
                 <field name="splited"/>
                 <field name="email"/>
                 <field name="state"/>
+                <field name="create_uid"/>
             </tree>
         </field>
     </record>
@@ -57,15 +58,17 @@
                                     attrs="{'readonly': [('state','==','done')] ,'invisible': [('invoice_type','!=','c')] }"/>
                              <field name="telephone"
                                     attrs="{'readonly': [('state','==','done')] ,'invisible': [('invoice_type','!=','c')] }"/>
-<!--                             <field name="copy_paste_tax"/>-->
 
-                             <label for="copy_paste_tax"/>
+                             <label for ='copy_paste_tax'/>
                              <div class="o_row">
-                                 <field name="copy_paste_tax"/>
-                                 <button name="button_demo" type="object" string="Button String"/>
+                                 <field name="copy_paste_tax"
+                                      attrs="{'invisible': [('state','!=','draft')] }"/>
+<!--                                 <button name="button_demo" type="object" string="Button String"-->
+<!--                                 attrs="{'invisible': [('state','!=','draft')] }"/>-->
                              </div>
 
-                             <field name="copy_paste_order"/>
+<!--                             <field name="copy_paste_order"-->
+<!--                                 attrs="{'invisible': [('state','!=','draft')] }"/>-->
                          </group>
                         <group>
                             <field name="order_no" attrs="{'readonly': [('state','==','done')] }"/>
@@ -73,6 +76,7 @@
                             <field name="splited" attrs="{'readonly': [('state','==','done')] }"/>
                             <field name="email" attrs="{'readonly': [('state','==','done')] }"/>
                             <field name="note" attrs="{'readonly': [('state','==','done')] }"/>
+                            <field name="create_uid"/>
                         </group>
 
                     </group>
@@ -113,11 +117,11 @@
 <field name="view_mode">tree,form</field>
 </record>
 
-<record model="ir.actions.act_window" id="orderline_list_action">
-    <field name="name">orerline_list</field>
-    <field name="res_model">cn.orderline</field>
-    <field name="view_mode">tree,form</field>
-</record>
+<!--<record model="ir.actions.act_window" id="orderline_list_action">-->
+<!--    <field name="name">orerline_list</field>-->
+<!--    <field name="res_model">cn.orderline</field>-->
+<!--    <field name="view_mode">tree,form</field>-->
+<!--</record>-->
 
 <record model="ir.actions.act_window" id="content_list_action">
     <field name="name">content_list</field>
@@ -131,15 +135,15 @@
 <menuitem id="cn_invoice_menu" name="Registing"
           parent="main_cn_invoice_menu"
           action="invoice_list_action"/>
-<menuitem id="cn_orderline_menu" name="orerline"
-          parent="main_cn_invoice_menu"
-          action="orderline_list_action"/>
+<!--<menuitem id="cn_orderline_menu" name="orerline"-->
+<!--          parent="main_cn_invoice_menu"-->
+<!--          action="orderline_list_action"/>-->
 
-<menuitem id="cn_orderline_menu" name="orerline"
-          parent="main_cn_invoice_menu"
-          action="orderline_list_action"/>
+<!--<menuitem id="cn_orderline_menu" name="orerline"-->
+<!--          parent="main_cn_invoice_menu"-->
+<!--          action="orderline_list_action"/>-->
 
-<menuitem id="cn_content_menu" name="content"
-          parent="main_cn_invoice_menu"
-          action="content_list_action"/>
+<!--<menuitem id="cn_content_menu" name="content"-->
+<!--          parent="main_cn_invoice_menu"-->
+<!--          action="content_list_action"/>-->
 </odoo>
