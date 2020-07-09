@@ -12,6 +12,9 @@ class invoicergister(models.Model):
     order_no=fields.Char( string ='Order No')
     to_company = fields.Char(string="To Company", required=True)
     tax_id = fields.Char(string="Tax ID", required=True)
+    store_name = fields.Selection(
+        [('tmsmzyd', '天猫数码专营店'), ('tmzmd', '天猫makeblock专卖店'), ('jdsmzyd', '京东数码专营店'), ('tbkakamaker', '咖咖>创客官方店'),
+         ('1688', '咖咖创客1688'), ('others', '其它')], required=True)
 
     copy_paste_tax = fields.Text(string='copy & paste tax information')
     copy_paste_order = fields.Text(String = 'copy & paste order information')
