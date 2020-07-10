@@ -35,11 +35,11 @@
                     <button name="action_apply" type='object'
                             string="Appling invoice"
                             states='apply_invoice'
-                            class="oe_highlight" groups = "__export__.res_groups_21_93deab42" />
+                            class="oe_highlight" groups = "cn_invoice.group_id_kaipiao" />
                     <button name="action_reset" type='object'
                             string="Reset to Draft"
                             states='done,apply_invoice'
-                            class="oe_highlight" groups = "__export__.res_groups_21_93deab42" />
+                            class="oe_highlight" groups = "cn_invoice.group_id_kaipiao" />
 
                     <field name="state" widget="statusbar"/>
 
@@ -125,7 +125,7 @@
 <!--    <field name="res_model">cn.orderline</field>-->
 <!--    <field name="view_mode">tree,form</field>-->
 <!--</record>-->
-
+cn
 <record model="ir.actions.act_window" id="content_list_action">
     <field name="name">content_list</field>
     <field name="res_model">cn.content</field>
@@ -150,10 +150,10 @@
 <!--          parent="main_cn_invoice_menu"-->
 <!--          action="content_list_action"/>-->
 
-<record id="your_group_id_goes_here_1" model="res.groups">
+<record id="cn_invoice.group_id_kaipiao" model="res.groups">
             <field name="name">开票</field>
         </record>
-        <record id="your_group_id_goes_here_2" model="res.groups">
+        <record id="cn_invoice.group_id_dengji" model="res.groups">
             <field name="name">登记</field>
         </record>
 
