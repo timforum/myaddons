@@ -1,0 +1,11 @@
+<odoo>
+
+
+      <record id="id_test" model="res.groups">
+            <field name="name">openacadey / test </field>
+        </record>
+<!--        <record id="cn_invoice.group_id_dengji" model="res.groups">-->
+<!--            <field name="name">登记</field>-->
+<!--        </record>-->
+
+</odoo>

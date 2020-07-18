@@ -12,9 +12,9 @@
                 <field name="to_company"/>
                 <field name="customer_net_id"/>
                 <field name="tax_id"/>
-                <field name="note"/>
+<!--                <field name="note"/>-->
                 <field name="splited"/>
-                <field name="email"/>
+<!--                <field name="email"/>-->
                 <field name="state"/>
                 <field name="create_uid"/>
                 <field name="store_name"/>
@@ -133,28 +133,34 @@ cn
 </record>
 
 
+    <menuitem id="main_cn_invoice_menu" name="Invoice Register"/>
+    <menuitem id="cn_invoice_menu" name="Registing"
+              parent="main_cn_invoice_menu"
+              action="invoice_list_action"/>
+    <!--<menuitem id="cn_orderline_menu" name="orerline"-->
+    <!--          parent="main_cn_invoice_menu"-->
+    <!--          action="orderline_list_action"/>-->
 
-<menuitem id="main_cn_invoice_menu" name="Invoice Register"/>
-<menuitem id="cn_invoice_menu" name="Registing"
-          parent="main_cn_invoice_menu"
-          action="invoice_list_action"/>
-<!--<menuitem id="cn_orderline_menu" name="orerline"-->
-<!--          parent="main_cn_invoice_menu"-->
-<!--          action="orderline_list_action"/>-->
+    <!--<menuitem id="cn_orderline_menu" name="orerline"-->
+    <!--          parent="main_cn_invoice_menu"-->
+    <!--          action="orderline_list_action"/>-->
 
-<!--<menuitem id="cn_orderline_menu" name="orerline"-->
-<!--          parent="main_cn_invoice_menu"-->
-<!--          action="orderline_list_action"/>-->
+    <!--<menuitem id="cn_content_menu" name="content"-->
+    <!--          parent="main_cn_invoice_menu"-->
+    <!--          action="content_list_action"/>-->
 
-<!--<menuitem id="cn_content_menu" name="content"-->
-<!--          parent="main_cn_invoice_menu"-->
-<!--          action="content_list_action"/>-->
+    <record id="invoice_kaipiao" model="res.groups">
+        <field name="name">开票</field>
+    </record>
+    <record id="invoice_dengji" model="res.groups">
+        <field name="name">登记</field>
+    </record>
 
-<record id="cn_invoice.group_id_kaipiao" model="res.groups">
-            <field name="name">开票</field>
-        </record>
-        <record id="cn_invoice.group_id_dengji" model="res.groups">
-            <field name="name">登记</field>
-        </record>
+    <record model="ir.module.category" id="module_management">
+        <field name="name">Overtime</field>
+        <field name="description">User access level for Overtime module</field>
+        <field name="sequence">20</field>
+    </record>
+
 
 </odoo>
