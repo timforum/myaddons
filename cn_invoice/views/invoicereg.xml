@@ -60,13 +60,13 @@
                              <field name="telephone"
                                     attrs="{'readonly': [('state','==','done')] ,'invisible': [('invoice_type','!=','c')] }"/>
 
-                             <label for ='copy_paste_tax'/>
-                             <div class="o_row">
+<!--                             <label for ='copy_paste_tax'/>-->
+<!--                             <div class="o_row">-->
                                  <field name="copy_paste_tax"
                                       attrs="{'invisible': [('state','!=','draft')] }"/>
 <!--                                 <button name="button_demo" type="object" string="Button String"-->
 <!--                                 attrs="{'invisible': [('state','!=','draft')] }"/>-->
-                             </div>
+<!--                             </div>-->
 
 <!--                             <field name="copy_paste_order"-->
 <!--                                 attrs="{'invisible': [('state','!=','draft')] }"/>-->
@@ -87,7 +87,7 @@
                     <group>
 
                        <field name='order_line' string="Order Line"  attrs="{'readonly': [('state','==','done')] }"/>
-                       <field name='content_line' string="Invoice Content" attrs="{'readonly': [('state','==','done')] }" />
+                       <field name='content_line' string="用户指定开票内容" attrs="{'readonly': [('state','==','done')] }" />
 
                     </group>
                 </sheet>
