@@ -12,9 +12,9 @@
                 <field name="to_company"/>
                 <field name="customer_net_id"/>
                 <field name="tax_id"/>
-                <field name="note"/>
+<!--                <field name="note"/>-->
                 <field name="splited"/>
-                <field name="email"/>
+<!--                <field name="email"/>-->
                 <field name="state"/>
                 <field name="create_uid"/>
                 <field name="store_name"/>
