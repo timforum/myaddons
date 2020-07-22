@@ -1,2 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_cn_invoice_cn_invoice,cn_invoice.cn_invoice,model_cn_invoice_cn_invoice,base.group_user,1,1,1,1
+id_test1,id_test1_name,cn_invoice.model_cn_invoice,invoice_kaipiao,1,1,1,1
+id_test2,id_test2_name,cn_invoice.model_cn_orderline,invoice_kaipiao,1,1,1,1
+id_test3,id_test3_name,cn_invoice.model_cn_content,invoice_kaipiao,1,1,1,1
+id_test4,id_test4_name,cn_invoice.model_cn_invoice,invoice_dengji,1,1,1,1
+id_test5,id_test5_name,cn_invoice.model_cn_orderline,invoice_dengji,1,1,1,1
+id_test6,id_test6_name,cn_invoice.model_cn_content,invoice_dengji,1,1,1,1
+

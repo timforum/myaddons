@@ -60,13 +60,13 @@
                              <field name="telephone"
                                     attrs="{'readonly': [('state','==','done')] ,'invisible': [('invoice_type','!=','c')] }"/>
 
-                             <label for ='copy_paste_tax'/>
-                             <div class="o_row">
+<!--                             <label for ='copy_paste_tax'/>-->
+<!--                             <div class="o_row">-->
                                  <field name="copy_paste_tax"
                                       attrs="{'invisible': [('state','!=','draft')] }"/>
 <!--                                 <button name="button_demo" type="object" string="Button String"-->
 <!--                                 attrs="{'invisible': [('state','!=','draft')] }"/>-->
-                             </div>
+<!--                             </div>-->
 
 <!--                             <field name="copy_paste_order"-->
 <!--                                 attrs="{'invisible': [('state','!=','draft')] }"/>-->
@@ -87,7 +87,7 @@
                     <group>
 
                        <field name='order_line' string="Order Line"  attrs="{'readonly': [('state','==','done')] }"/>
-                       <field name='content_line' string="Invoice Content" attrs="{'readonly': [('state','==','done')] }" />
+                       <field name='content_line' string="用户指定开票内容" attrs="{'readonly': [('state','==','done')] }" />
 
                     </group>
                 </sheet>
@@ -120,11 +120,11 @@
 <field name="view_mode">tree,form</field>
 </record>
 
-<!--<record model="ir.actions.act_window" id="orderline_list_action">-->
-<!--    <field name="name">orerline_list</field>-->
-<!--    <field name="res_model">cn.orderline</field>-->
-<!--    <field name="view_mode">tree,form</field>-->
-<!--</record>-->
+<record model="ir.actions.act_window" id="orderline_list_action">
+    <field name="name">orerline_list</field>
+    <field name="res_model">cn.orderline</field>
+    <field name="view_mode">tree,form</field>
+</record>
 cn
 <record model="ir.actions.act_window" id="content_list_action">
     <field name="name">content_list</field>
@@ -134,27 +134,25 @@ cn
 
 
 
-<menuitem id="main_cn_invoice_menu" name="Invoice Register"/>
-<menuitem id="cn_invoice_menu" name="Registing"
-          parent="main_cn_invoice_menu"
-          action="invoice_list_action"/>
-<!--<menuitem id="cn_orderline_menu" name="orerline"-->
-<!--          parent="main_cn_invoice_menu"-->
-<!--          action="orderline_list_action"/>-->
+    <menuitem id="main_cn_invoice_menu" name="Invoice Register"/>
+    <menuitem id="cn_invoice_menu" name="Registing"
+              parent="main_cn_invoice_menu"
+              action="invoice_list_action"/>
+<!--    <menuitem id="cn_orderline_menu" name="orerline"-->
+<!--              parent="main_cn_invoice_menu"-->
+<!--              action="orderline_list_action"/>-->
 
-<!--<menuitem id="cn_orderline_menu" name="orerline"-->
-<!--          parent="main_cn_invoice_menu"-->
-<!--          action="orderline_list_action"/>-->
+    <menuitem id="cn_orderline_menu" name="orerline"
+              parent="main_cn_invoice_menu"
+              action="orderline_list_action"/>
 
-<!--<menuitem id="cn_content_menu" name="content"-->
-<!--          parent="main_cn_invoice_menu"-->
-<!--          action="content_list_action"/>-->
+    <menuitem id="cn_content_menu" name="content"
+              parent="main_cn_invoice_menu"
+              action="content_list_action"/>
 
-<record id="cn_invoice.group_id_kaipiao" model="res.groups">
-            <field name="name">开票</field>
-        </record>
-        <record id="cn_invoice.group_id_dengji" model="res.groups">
-            <field name="name">登记</field>
-        </record>
+
+
+
+
 
 </odoo>

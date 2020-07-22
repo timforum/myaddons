@@ -1,0 +1,12 @@
+<odoo>
+
+
+    <record id="invoice_kaipiao" model="res.groups">
+        <field name="name">开票</field>
+    </record>
+    <record id="invoice_dengji" model="res.groups">
+        <field name="name">登记</field>
+    </record>
+
+
+</odoo>
