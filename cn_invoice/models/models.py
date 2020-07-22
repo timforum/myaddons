@@ -34,6 +34,12 @@ class invoicergister(models.Model):
     order_line= fields.One2many("cn.orderline","cn_invoice_id",string='sku')
     content_line =fields.One2many("cn.content","cn_invoice_id",string='sku')
 
+    @api.constrains('tax_id')
+    def _verify_tax_id(self):
+        for r in self:
+            s = r.tax_id
+            x=s.split(",")
+            print (1)
 
 
 
@@ -64,17 +70,10 @@ class invoicergister(models.Model):
         self.to_company="bbb"
         self.tax_id = "cccc"
 
-    #
-    # @api.onchange('tax_id')
-    #   def _verify_tax_id (self):
-    #      for taxid in self.tax_id:
-    #          line = self.tax_id.filtered(lambda x: x.tax_id == tid)
-    #          if len(line) > 1:
-    #              raise ValidationError(_('You cannot have multiple lines with same barcode(%s)') % (line[1].barcode))
-    #              break
-    #           'warning':{
-    #             'title': "Dup" , 'message':"Invoice has been done"
-    #            }
+
+
+
+
 
 
 class cn_orderline(models.Model):
