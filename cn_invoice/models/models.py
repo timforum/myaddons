@@ -34,14 +34,12 @@ class invoicergister(models.Model):
     order_line= fields.One2many("cn.orderline","cn_invoice_id",string='sku')
     content_line =fields.One2many("cn.content","cn_invoice_id",string='sku')
 
-    @api.constrains('tax_id')
+    @api.onchange('order_no')
     def _verify_tax_id(self):
-        for r in self:
-            s = r.tax_id
-            x=s.split(",")
-            print (1)
-
-
+         kkk= self.search([('order_no','=',self.order_no)])
+         if kkk :
+             raise exceptions.ValidationError('订单已开过发票')
+             self.order_no =""
 
 
     def action_submit(self):
