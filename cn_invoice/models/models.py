@@ -36,12 +36,19 @@ class invoicergister(models.Model):
 
     @api.onchange('order_no')
     def _verify_tax_id(self):
-         kkk= self.search([('order_no','=',self.order_no)])
-         if kkk :
-             raise exceptions.ValidationError('订单已开过发票')
-             self.order_no =""
+         i= self.order_no.split(",")
+         for n in i :
+             kkk = self.search([('order_no', 'ilike', n)])
+             # print(n)
+             # print(self.order_no)
+             if kkk :
+                 raise exceptions.ValidationError("订单:%s 已开过发票"%n)
 
-
+    @api.constrains('order_no')
+    def _check_order_no_validation(self):
+        i=" "
+        if  i in  self.order_no  :
+            raise exceptions.ValidationError ("订号中不能有空
     def action_submit(self):
         self.state = 'apply_invoice'
 
@@ -67,7 +74,6 @@ class invoicergister(models.Model):
         # self.invoice_type="aaa"
         self.to_company="bbb"
         self.tax_id = "cccc"
-
 
 
 
