@@ -30,16 +30,17 @@
                 <header>
 
                     <button name="action_submit" type="object"
-                            string="submit" states="draft"
-                            class="oe_highlight"/>
+                            string="submit"
+                            states="draft"
+                            class="oe_highlight" groups = "cn_invoice.invoice_dengji"/>
                     <button name="action_apply" type='object'
                             string="Appling invoice"
                             states='apply_invoice'
-                            class="oe_highlight" groups = "cn_invoice.group_id_kaipiao" />
+                            class="oe_highlight" groups = "cn_invoice.invoice_kaipiao" />
                     <button name="action_reset" type='object'
                             string="Reset to Draft"
                             states='done,apply_invoice'
-                            class="oe_highlight" groups = "cn_invoice.group_id_kaipiao" />
+                            class="oe_highlight" groups = "cn_invoice.invoice_kaipiao" />
 
                     <field name="state" widget="statusbar"/>
 
@@ -73,7 +74,7 @@
                          </group>
                         <group>
                             <field name="order_no" attrs="{'readonly': [('state','==','done')] }"/>
-                            <field name="store_name"/>
+                            <field name="store_name" attrs="{'readonly': [('state','==','done')] }"/>
                             <field name="customer_net_id" attrs="{'readonly': [('state','==','done')] }"/>
                             <field name="splited" attrs="{'readonly': [('state','==','done')] }"/>
                             <field name="email" attrs="{'readonly': [('state','==','done')] }"/>
