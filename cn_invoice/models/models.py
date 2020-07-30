@@ -110,3 +110,18 @@ class cn_Content(models.Model):
     def _amount(self):
         for r in self:
             r.amount = r.unit_price * r.qty
+class e_order_line(models.Model):
+    # _name = "e_order_line"
+    _inherit = 'sale.order.line'
+    order_internal_no = fields.Char(string='订单编号')
+    e_ordre_unit = fields.Char('单柆‘）
+    
+
+
+
+    # deal_time = fields.Datetime(string= 'Deal Time')
+    # origin_order_no = fields.Char(string = "Orgiain Order No")
+    # Order_status = fields.Selection( [ ('a'待销发货')，('b','待出库'), ('c','待审核'),('d','取消' ),('e','完成' ),('f','预订' )])
+    # deal_duration = fields.Float(stri='处理时长
+    # order_finish_datetime =fields.Datetime(String ='完成时间')
+    # shop_name = fields.

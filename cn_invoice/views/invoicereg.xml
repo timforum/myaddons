@@ -133,6 +133,11 @@ cn
     <field name="view_mode">tree,form</field>
 </record>
 
+    <record model="ir.actions.act_window" id="e_order_line_action">
+        <field name="name">e-order_list</field>
+        <field name="res_model">sale.order.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
 
     <menuitem id="main_cn_invoice_menu" name="Invoice Register"/>
@@ -151,8 +156,9 @@ cn
               parent="main_cn_invoice_menu"
               action="content_list_action"/>
 
-
-
+    <menuitem id="e_order_menu" name="e-order_line"
+              parent="main_cn_invoice_menu"
+              action="e_order_line_action" />
 
 
 

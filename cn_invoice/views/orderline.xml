@@ -34,5 +34,25 @@
 
     </record>
 
+    <record model="ir.ui.view" id="e_order_line_view">
+        <field name="name">e_order_line.tree</field>
+        <field name="model">sale.order.line</field>
+        <field name="arch" type="xml">
+
+            <tree string=" e_order_view" editable='bottom'>
+                <field name="product_id"/>
+                <field name ="price_unit"/>
+                <field name="company_id"/>
+                <field name="create_uid"/>
+<!--                <field name="sale.order.line.product_id"/>-->
+                <!--                <field name="qty"/>-->
+                <!--                <field name="unit_price"/>-->
+                <!--                <field name="amount" sum="total"/>-->
+            </tree>
+
+        </field>
+
+    </record>
+
 </odoo>
 
