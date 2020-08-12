@@ -113,8 +113,9 @@ class cn_Content(models.Model):
 class e_order_line(models.Model):
     # _name = "e_order_line"
     _inherit = 'sale.order.line'
-    order_internal_no = fields.Char(string='订单编号')
-    e_ordre_unit = fields.Char('单柆‘）
+    order_internal_no = fields.Char(string="订单编号")
+    e_ordre_unit = fields.Char( string = "单位" )
+
     
 
 
