@@ -40,6 +40,7 @@
         <field name="arch" type="xml">
 
             <tree string=" e_order_view" editable='bottom'>
+
                 <field name="product_id"/>
                 <field name ="price_unit"/>
                 <field name="company_id"/>
