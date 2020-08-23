@@ -148,17 +148,17 @@ cn
 <!--              parent="main_cn_invoice_menu"-->
 <!--              action="orderline_list_action"/>-->
 
-    <menuitem id="cn_orderline_menu" name="orerline"
-              parent="main_cn_invoice_menu"
-              action="orderline_list_action"/>
+<!--    <menuitem id="cn_orderline_menu" name="orerline"-->
+<!--              parent="main_cn_invoice_menu"-->
+<!--              action="orderline_list_action"/>-->
 
-    <menuitem id="cn_content_menu" name="content"
-              parent="main_cn_invoice_menu"
-              action="content_list_action"/>
+<!--    <menuitem id="cn_content_menu" name="content"-->
+<!--              parent="main_cn_invoice_menu"-->
+<!--              action="content_list_action"/>-->
 
-    <menuitem id="e_order_menu" name="e-order_line"
-              parent="main_cn_invoice_menu"
-              action="e_order_line_action" />
+<!--    <menuitem id="e_order_menu" name="e-order_line"-->
+<!--              parent="main_cn_invoice_menu"-->
+<!--              action="e_order_line_action" />-->
 
 
 
