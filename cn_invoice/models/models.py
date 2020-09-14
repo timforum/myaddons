@@ -118,8 +118,6 @@ class e_order_line(models.Model):
 
     
 
-
-
     # deal_time = fields.Datetime(string= 'Deal Time')
     # origin_order_no = fields.Char(string = "Orgiain Order No")
     # Order_status = fields.Selection( [ ('a'待销发货')，('b','待出库'), ('c','待审核'),('d','取消' ),('e','完成' ),('f','预订' )])

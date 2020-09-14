@@ -126,7 +126,7 @@
     <field name="res_model">cn.orderline</field>
     <field name="view_mode">tree,form</field>
 </record>
-cn
+
 <record model="ir.actions.act_window" id="content_list_action">
     <field name="name">content_list</field>
     <field name="res_model">cn.content</field>
@@ -144,21 +144,21 @@ cn
     <menuitem id="cn_invoice_menu" name="Registing"
               parent="main_cn_invoice_menu"
               action="invoice_list_action"/>
-<!--    <menuitem id="cn_orderline_menu" name="orerline"-->
-<!--              parent="main_cn_invoice_menu"-->
-<!--              action="orderline_list_action"/>-->
+    <menuitem id="cn_orderline_menu" name="orerline"
+              parent="main_cn_invoice_menu"
+              action="orderline_list_action"/>
 
-<!--    <menuitem id="cn_orderline_menu" name="orerline"-->
-<!--              parent="main_cn_invoice_menu"-->
-<!--              action="orderline_list_action"/>-->
+    <menuitem id="cn_orderline_menu" name="orerline"
+              parent="main_cn_invoice_menu"
+              action="orderline_list_action"/>
 
-<!--    <menuitem id="cn_content_menu" name="content"-->
-<!--              parent="main_cn_invoice_menu"-->
-<!--              action="content_list_action"/>-->
+    <menuitem id="cn_content_menu" name="content"
+              parent="main_cn_invoice_menu"
+              action="content_list_action"/>
 
-<!--    <menuitem id="e_order_menu" name="e-order_line"-->
-<!--              parent="main_cn_invoice_menu"-->
-<!--              action="e_order_line_action" />-->
+    <menuitem id="e_order_menu" name="e-order_line"
+              parent="main_cn_invoice_menu"
+              action="e_order_line_action" />
 
 
 

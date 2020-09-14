@@ -1,0 +1,114 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="aftersale.list">
+      <field name="name">aftersale list</field>
+      <field name="model">aftersale.aftersale</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="serial_no"/>
+          <field name="order_no"/>
+          <field name="purchase_date"/>
+          <field name="using_dates"/>
+          <field name="request_date"/>
+          <field name="weixin_no"/>
+          <field name="priorit"/>
+          <field name="problem"/>
+          <field name="note"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="aftersale.list">
+      <field name="name">aftersale list</field>
+      <field name="model">aftersale.aftersale</field>
+      <field name="arch" type="xml">
+        <form string="invoice_form1">
+
+          <field name="name"/>
+          <field name="serial_no"/>
+          <field name="order_no"/>
+          <field name="purchase_date"/>
+          <field name="using_dates"/>
+          <field name="request_date"/>
+          <field name="weixin_no"/>
+          <field name="priorit"/>
+          <field name="problem"/>
+          <field name="note"/>
+        </form>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="products.list">
+      <field name="name">products list</field>
+      <field name="model">products.products</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="sku"/>
+          <field name="name"/>
+
+         </tree>
+      </field>
+
+    </record>
+
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="aftersale.action_window">
+      <field name="name">aftersale window</field>
+      <field name="res_model">aftersale.aftersale</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="aftersale.products_window">
+      <field name="name">aftersale products window</field>
+      <field name="res_model">products.products</field>
+      <field name="view_mode">tree,form</field>
+
+    </record>
+
+
+
+    <!-- server action to the one above -->
+
+<!--    <record model="ir.actions.server" id="aftersale.action_server">-->
+<!--      <field name="name">aftersale server</field>-->
+<!--      <field name="model_id" ref="model_aftersale_aftersale"/>-->
+<!--      <field name="state">code</field>-->
+<!--      <field name="code">-->
+<!--        action = {-->
+<!--          "type": "ir.actions.act_window",-->
+<!--          "view_mode": "tree,form",-->
+<!--          "res_model": model._name,-->
+<!--        }-->
+<!--      </field>-->
+<!--    </record>-->
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="aftersale" id="aftersale.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="After-sale" id="aftersale.menu_1" parent="aftersale.menu_root"
+        action="aftersale.action_window"/>
+
+    <menuitem name="Products " id="aftersale.products" parent="aftersale.menu_root"
+        action="aftersale.products_window"/>
+
+<!--    <menuitem name="Menu 2" id="aftersale.menu_2" parent="aftersale.menu_root"/>-->
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="aftersale.menu_1_list" parent="aftersale.menu_1"
+              action="aftersale.action_window"/>
+    <menuitem name="Server to list" id="aftersale" parent="aftersale.menu_2"
+              action="aftersale.action_server"/>
+-->
+  </data>
+</odoo>
