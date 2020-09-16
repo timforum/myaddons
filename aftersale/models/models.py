@@ -19,10 +19,11 @@ class aftersale(models.Model):
     stage = fields.Selection([('a', 'Reuest'), ('b', 'Handeling'), ('c', 'Replace parts'), ('c', 'Done')])
     problem = fields.Char()
     note = fields.Text()
+    products_line= fields.Many2one('aftersale.products',string="name")
 
 
 class products(models.Model):
-    _name = 'products.products'
+    _name = 'aftersale.products'
     _description = 'aftersale.products'
     name = fields.Char()
     sku = fields.Char()

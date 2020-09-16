@@ -36,41 +36,54 @@
           <field name="priorit"/>
           <field name="problem"/>
           <field name="note"/>
+          <field name="products_line"/>
         </form>
       </field>
     </record>
 
 
-    <record model="ir.ui.view" id="products.list">
+    <!-- actions opening views on models -->
+
+    <record model="ir.ui.view" id="aftersale.products_list">
       <field name="name">products list</field>
-      <field name="model">products.products</field>
+      <field name="model">aftersale.products</field>
       <field name="arch" type="xml">
         <tree>
           <field name="sku"/>
           <field name="name"/>
-
-         </tree>
+        </tree>
       </field>
+    </record>
 
+    <record model="ir.ui.view" id="aftersale.products_list">
+      <field name="name">products list</field>
+      <field name="model">aftersale.products</field>
+      <field name="arch" type="xml">
+
+        <form>
+          <field name="sku"/>
+          <field name="name"/>
+        </form>
+
+      </field>
     </record>
 
 
-
     <!-- actions opening views on models -->
+
+
+
+    <record model="ir.actions.act_window" id="aftersale.products_action_window">
+      <field name="name">aftersale products window</field>
+      <field name="res_model">aftersale.products</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
     <record model="ir.actions.act_window" id="aftersale.action_window">
       <field name="name">aftersale window</field>
       <field name="res_model">aftersale.aftersale</field>
       <field name="view_mode">tree,form</field>
     </record>
-
-    <record model="ir.actions.act_window" id="aftersale.products_window">
-      <field name="name">aftersale products window</field>
-      <field name="res_model">products.products</field>
-      <field name="view_mode">tree,form</field>
-
-    </record>
-
 
 
     <!-- server action to the one above -->
@@ -89,6 +102,7 @@
 <!--    </record>-->
 
 
+
     <!-- Top menu item -->
 
     <menuitem name="aftersale" id="aftersale.menu_root"/>
@@ -98,8 +112,8 @@
     <menuitem name="After-sale" id="aftersale.menu_1" parent="aftersale.menu_root"
         action="aftersale.action_window"/>
 
-    <menuitem name="Products " id="aftersale.products" parent="aftersale.menu_root"
-        action="aftersale.products_window"/>
+    <menuitem name="Products " id="aftersale.products_menu_1" parent="aftersale.menu_root"
+        action="aftersale.products_action_window"/>
 
 <!--    <menuitem name="Menu 2" id="aftersale.menu_2" parent="aftersale.menu_root"/>-->
 -->
