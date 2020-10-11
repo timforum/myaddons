@@ -1,9 +1,9 @@
 <odoo>
   <data>
 
-    <record model="ir.ui.view" id="aftersale.list">
+    <record model="ir.ui.view" id="afters.list">
       <field name="name">aftersale list</field>
-      <field name="model">aftersale.aftersale</field>
+      <field name="model">afters</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
@@ -20,9 +20,9 @@
       </field>
     </record>
 
-    <record model="ir.ui.view" id="aftersale.list">
+    <record model="ir.ui.view" id="afters.list">
       <field name="name">aftersale list</field>
-      <field name="model">aftersale.aftersale</field>
+      <field name="model">afters</field>
       <field name="arch" type="xml">
         <form string="invoice_form1">
 
@@ -79,9 +79,9 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <record model="ir.actions.act_window" id="aftersale.action_window">
+    <record model="ir.actions.act_window" id="afters.action_window">
       <field name="name">aftersale window</field>
-      <field name="res_model">aftersale.aftersale</field>
+      <field name="res_model">afters</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -109,8 +109,8 @@
 
     <!-- menu categories -->
 
-    <menuitem name="After-sale" id="aftersale.menu_1" parent="aftersale.menu_root"
-        action="aftersale.action_window"/>
+    <menuitem name="After-sale" id="afters.menu_1" parent="afters.menu_root"
+        action="afters.action_window"/>
 
     <menuitem name="Products " id="aftersale.products_menu_1" parent="aftersale.menu_root"
         action="aftersale.products_action_window"/>

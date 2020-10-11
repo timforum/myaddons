@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 
 class aftersale(models.Model):
-    _name = 'aftersale.aftersale'
+    _name = 'afters'
     _description = 'aftersale.aftersale'
 
     name = fields.Char()
@@ -19,7 +19,8 @@ class aftersale(models.Model):
     stage = fields.Selection([('a', 'Reuest'), ('b', 'Handeling'), ('c', 'Replace parts'), ('c', 'Done')])
     problem = fields.Char()
     note = fields.Text()
-    products_line= fields.Many2one('aftersale.products',string="name")
+    products_line= fields.Many2many('abcde',string="name")
+
 
 
 class products(models.Model):
@@ -27,3 +28,8 @@ class products(models.Model):
     _description = 'aftersale.products'
     name = fields.Char()
     sku = fields.Char()
+
+
+class jjj(models.Model):
+    _name = 'abcde'
+    name = fields.Char()
